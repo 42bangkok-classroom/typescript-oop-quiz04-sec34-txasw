@@ -11,7 +11,7 @@ export class MissionController {
     return this.missionService.findAll();
   }
 
-  @Get()
+  @Get('summary')
   getSummary(): { ACTIVE: number; COMPLETED: number; FAILED: number } {
     return this.missionService.getSummary();
   }
