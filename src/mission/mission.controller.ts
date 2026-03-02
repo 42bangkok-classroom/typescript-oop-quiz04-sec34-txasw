@@ -12,7 +12,7 @@ export class MissionController {
   }
 
   @Get('summary')
-  getSummary(): { ACTIVE: number; COMPLETED: number; FAILED: number } {
+  getSummary() {
     return this.missionService.getSummary();
   }
 }
