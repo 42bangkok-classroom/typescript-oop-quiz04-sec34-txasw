@@ -82,6 +82,7 @@ export class MissionService {
       endDate: null,
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     jsonMission.push(newMission as any);
     fs.writeFileSync(
       'data/missions.json',
