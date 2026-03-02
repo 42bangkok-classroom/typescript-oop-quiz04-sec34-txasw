@@ -30,7 +30,7 @@ export class MissionService {
     };
   }
   findAll(): IMission[] {
-    const raw = fs.readFile('data/missions.json', 'utf8');
+    const raw = fs.readFile('data/missions.json', 'utf-8');
     return JSON.parse(raw) as IMission[];
   }
 }
