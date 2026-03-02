@@ -1,13 +1,6 @@
-import { IMission } from './mission.interface';
+import { IMission, CreateMissionDto } from './mission.interface';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import * as fs from 'fs';
-
-interface CreateMissionDto {
-  codename: string;
-  riskLevel: string;
-  targetName: string;
-  startDate: string;
-}
 
 @Injectable()
 export class MissionService {

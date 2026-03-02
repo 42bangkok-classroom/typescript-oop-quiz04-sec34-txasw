@@ -1,5 +1,6 @@
 import { Controller, Get, Param, Query, Post, Body } from '@nestjs/common';
 import { MissionService } from './mission.service';
+import { CreateMissionDto } from './mission.interface';
 @Controller('missions')
 export class MissionController {
   constructor(private readonly missionService: MissionService) {}
@@ -20,7 +21,7 @@ export class MissionController {
   }
 
   @Post()
-  create(@Body() body: any) {
+  create(@Body() body: CreateMissionDto) {
     return this.missionService.create(body);
   }
 }
