@@ -2,6 +2,13 @@ import { IMission } from './mission.interface';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import * as fs from 'fs';
 
+interface CreateMissionDto {
+  codename: string;
+  riskLevel: string;
+  targetName: string;
+  startDate: string;
+}
+
 @Injectable()
 export class MissionService {
   private readonly missions = [
@@ -57,7 +64,7 @@ export class MissionService {
     return found;
   }
 
-  create(body: any) {
+  create(body: CreateMissionDto) {
     const raw = fs.readFileSync('data/missions.json', 'utf8');
     const jsonMission = JSON.parse(raw) as IMission[];
 
@@ -73,7 +80,7 @@ export class MissionService {
       targetName: body.targetName,
       startDate: body.startDate,
       endDate: null,
-    } as any;
+    };
 
     jsonMission.push(newMission as any);
     fs.writeFileSync(
