@@ -11,7 +11,7 @@ export class MissionService {
     { id: 6, codename: 'GHOST_RIDER', status: 'COMPLETED' },
   ];
 
-  getSummary(): { ACTIVE: number; COMPLETE: number; FAILED: number } {
+  getSummary(): { ACTIVE: number; COMPLETED: number; FAILED: number } {
     const activeCount = this.missions.filter(
       (m) => m.status === 'ACTIVE',
     ).length;
@@ -23,7 +23,7 @@ export class MissionService {
     ).length;
     return {
       ACTIVE: activeCount,
-      COMPLETE: completeCount,
+      COMPLETED: completeCount,
       FAILED: failedCount,
     };
   }
