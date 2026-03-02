@@ -45,7 +45,7 @@ export class MissionService {
   findOne(id: string, clearance: string) {
     const raw = fs.readFileSync('data/missions.json', 'utf8');
     const jsonMission = JSON.parse(raw) as IMission[];
-    const found = jsonMission.find((mission) => mission.id !== null);
+    const found = jsonMission.find((mission) => mission.id === id);
     let res = {};
     if (!found) throw NotFoundException;
     const risk = found.riskLevel;
