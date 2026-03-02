@@ -1,4 +1,6 @@
+import { IMission } from './mission.interface';
 import { Injectable } from '@nestjs/common';
+import * as fs from 'fs';
 
 @Injectable()
 export class MissionService {
@@ -26,5 +28,9 @@ export class MissionService {
       COMPLETED: completeCount,
       FAILED: failedCount,
     };
+  }
+  findAll(): IMission[] {
+    const raw = fs.readFile('../../data/missions.json', 'utf8');
+    return JSON.parse(raw) as IMission[];
   }
 }
